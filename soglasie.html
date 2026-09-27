@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Согласие на обработку персональных данных — Шары</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Текст согласия, которое посетитель даёт галочкой под формой записи на сайте клуба «Шары».">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;600;700&display=swap">
+<style>
+:root{
+  --sugar:#0F1712; --cocoa:#172420; --cocoa-hi:#1F5C3E;
+  --line:rgba(243,239,228,0.24); --line-soft:rgba(243,239,228,0.12);
+  --caramel:#D4AF37; --wine:#8B2E2E; --cream:#F3EFE4; --cream-dim:#9BA79C;
+  --display:"Cormorant Garamond",Georgia,serif;
+  --text:Manrope,"Segoe UI",sans-serif;
+  --radius:4px; --pad:clamp(20px,5vw,56px);
+  --f1:clamp(11px,2.82vw,12px);
+  --f2:clamp(13px,3.33vw,14px);
+  --f3:clamp(16px,4.1vw,17px);
+  --f4:clamp(21px,2.1vw,26px);
+  --f5:clamp(31px,4.2vw,52px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scrollbar-gutter:stable}
+body{margin:0;background:var(--sugar);color:var(--cream);font:400 var(--f3)/1.5 var(--text);
+  -webkit-font-smoothing:antialiased}
+h1,h2{margin:0;font-weight:700;font-family:var(--display);line-height:1.12;letter-spacing:-.01em;text-wrap:balance}
+p,li{margin:0;text-wrap:pretty}
+ul,ol{margin:0;padding:0;list-style:none}
+a{color:var(--caramel);text-underline-offset:4px}
+:focus-visible{outline:2px solid var(--caramel);outline-offset:3px}
+.shell{max-width:calc(720px + var(--pad) * 2);margin:0 auto;padding:clamp(24px,4vw,44px) var(--pad) clamp(56px,9vw,104px)}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  margin-bottom:clamp(36px,6vw,68px)}
+.brand{display:inline-flex;align-items:center;min-height:46px;text-decoration:none;color:var(--cream);
+  font-family:var(--display);font-size:var(--f4);letter-spacing:.02em}
+.back{display:inline-flex;align-items:center;min-height:46px;font-weight:600}
+h1{font-size:var(--f5)}
+.date{margin-top:16px;color:var(--cream-dim);font-size:var(--f2);letter-spacing:.1em;text-transform:uppercase}
+.intro{margin-top:24px;font-size:var(--f4);font-family:var(--display);line-height:1.3}
+h2{margin:clamp(34px,4.5vw,50px) 0 12px;font-size:var(--f4)}
+p+p,p+ul,ul+p,p+ol,ol+p{margin-top:12px}
+main p,main li{max-width:40em}
+li{position:relative;padding-left:22px}
+li+li{margin-top:9px}
+li::before{content:"";position:absolute;left:4px;top:.65em;width:5px;height:5px;border-radius:50%;background:var(--caramel)}
+ol{counter-reset:n}
+ol li{counter-increment:n;padding-left:26px}
+ol li::before{content:counter(n) ".";position:static;float:left;margin-left:-26px;width:auto;height:auto;
+  border-radius:0;background:none;color:var(--caramel);font-variant-numeric:tabular-nums}
+.card{margin-top:clamp(32px,4.5vw,50px);padding:22px 24px;border-radius:var(--radius);
+  background:var(--cocoa);border:1px solid var(--line)}
+.card h2{margin-top:0}
+.quote{margin-top:22px;padding:20px 22px;border-radius:var(--radius);
+  background:var(--cocoa-hi);border:1px solid var(--line)}
+.foot{margin-top:clamp(48px,7vw,80px);padding-top:20px;border-top:1px solid var(--line-soft);
+  color:var(--cream-dim);font-size:var(--f2)}
+.nowrap{white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="top">
+    <a class="brand" href="index.html">Шары</a>
+    <a class="back" href="index.html">На главную</a>
+  </header>
+
+  <main>
+    <h1>Согласие на обработку персональных данных</h1>
+    <p class="date">Редакция от 27 сентября 2026 года</p>
+    <p class="intro">Это текст, который вы принимаете галочкой под формой записи. С 1 сентября 2025 года согласие оформляется отдельным документом, а не строкой в политике, — поэтому оно вынесено на свою страницу.</p>
+
+    <h2>Кому вы даёте согласие</h2>
+    <p>ИП Фамилия Имя Отчество, ОГРНИП 304602733500123, ИНН 602700123456, [адрес клуба].</p>
+
+    <h2>Какие данные и зачем</h2>
+    <p>Отмечая галочку и отправляя форму, вы разрешаете клубу обрабатывать:</p>
+    <ul>
+      <li>имя, которое вы указали в форме;</li>
+      <li>телефон;</li>
+      <li>время и стол, если вы назвали их администратору по телефону.</li>
+    </ul>
+    <p>Цель одна: перезвонить по заявке, подобрать стол и согласовать время. Для рассылок, рекламы и передачи третьим лицам эти данные не используются.</p>
+
+    <h2>Что клуб делает с данными</h2>
+    <p>Собирает, записывает, хранит, уточняет, использует, передаёт сервисам из <a href="policy.html">политики обработки</a>, обезличивает и удаляет. Всё — без автоматического принятия решений о вас: заявку читает администратор.</p>
+
+    
+
+    <h2>Сколько действует и как отозвать</h2>
+    <p>Согласие действует, пока вы его не отзовёте, и заканчивается через три месяца после визита или отказа от записи.</p>
+    <p>Отозвать можно двумя способами:</p>
+    <ol>
+      <li>письмом на <a href="mailto:hello@shary-club.ru">hello@shary-club.ru</a> с темой «отзыв согласия» — укажите имя и телефон из заявки;</li>
+      <li>словами по телефону <a href="tel:+70000000000"><span class="nowrap">[телефон]</span></a> администратору.</li>
+    </ol>
+    <p>Клуб удаляет заявку в течение трёх рабочих дней и перестаёт звонить. Если время визита уже согласовано, скажите об этом отдельно — иначе напомнить о записи будет некому.</p>
+
+    <div class="quote">
+      <p><b>Текст галочки под формой:</b> «Согласен на обработку персональных данных. Номер нужен только для звонка по этой брони».</p>
+    </div>
+
+    <div class="card">
+      <h2>Демонстрационная страница</h2>
+      <p>Сайт — образец работы, а не действующий сайт клуба. Реквизиты, телефон и почта стоят примером и заменяются на настоящие перед запуском. Заявка с формы никуда не отправляется, и согласие ни к чему не приводит.</p>
+    </div>
+
+    <p class="foot">Шары, Псков · <a href="index.html">На главную</a> · <a href="policy.html">Политика обработки данных</a></p>
+  </main>
+</div>
+</body>
+</html>

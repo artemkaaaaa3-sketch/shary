@@ -1,4 +1,12 @@
-<title>Шары</title>
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- образец работы: от поисковиков закрыт, перед запуском строку убрать -->
+<meta name="robots" content="noindex">
+<title>Шары — бильярдный клуб: русский бильярд, пул и VIP-караоке</title>
+<meta name="description" content="Бильярдный клуб «Шары»: девять столов русского бильярда и пула, VIP-комната с караоке, крафтовое пиво и кухня. Цены за час, бронь стола по телефону.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -9,53 +17,73 @@
     --accent:#D4AF37; --accent-2:#8B2E2E; --felt:#1F5C3E;
     --line:rgba(243,239,228,0.12); --line-strong:rgba(243,239,228,0.24);
     --shadow:0 24px 60px -20px rgba(0,0,0,0.6);
-    --font-display:"Cormorant Garamond",Georgia,serif;
-    --font-body:"Manrope","Segoe UI",sans-serif;
-    --font-mono:"JetBrains Mono",Consolas,monospace;
+    --font-display:"Cormorant Garamond","Cormorant Fb",Georgia,serif;
+    --font-body:"Manrope","Manrope Fb","Segoe UI",sans-serif;
+    --font-mono:"JetBrains Mono","Mono Fb",Consolas,monospace;
   }
+  /* запасные гарнитуры с подогнанной шириной: пока грузятся веб-шрифты,
+     строки ложатся так же, и первый экран не прыгает. Замер 27.09.2026:
+     Cormorant Garamond — 85,7 % ширины Georgia, Manrope — 100,7 % ширины
+     Arial, JetBrains Mono — 109,1 % ширины Consolas */
+  @font-face{font-family:"Cormorant Fb";src:local("Georgia");size-adjust:85.7%}
+  @font-face{font-family:"Manrope Fb";src:local("Arial");size-adjust:100.7%}
+  @font-face{font-family:"Mono Fb";src:local("Consolas");size-adjust:109.1%}
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);line-height:1.6}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);line-height:1.5}
   img,svg{max-width:100%;display:block}
   a{color:inherit}
   ::selection{background:var(--accent);color:#1a0d05}
   .wrap{max-width:1180px;margin-inline:auto;padding-inline:clamp(20px,5vw,48px)}
   h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.1;margin:0;text-wrap:balance}
+  /* последняя строка из одного слова: перенос подбирает браузер */
+  p,li,dd,figcaption,blockquote,summary{text-wrap:pretty}
   .eyebrow{font-family:var(--font-mono);font-size:0.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:.7em}
   .eyebrow::before{content:"";width:22px;height:2px;background:var(--accent)}
-  .placeholder{color:var(--accent-2);font-weight:600}
+  /* тёмно-красный по тёмному фону давал контраст ниже 4,5: заглушка должна
+   читаться — её видит и Артём, и клиент, который будет её заполнять */
+.nowrap{white-space:nowrap}
+  .placeholder{color:#F0A0A0;font-weight:600}
 
   .btn{font-family:var(--font-body);font-weight:700;font-size:1rem;padding:.9em 1.6em;border-radius:999px;border:1.5px solid var(--accent);background:var(--accent);color:#241503;cursor:pointer;display:inline-flex;align-items:center;gap:.5em;text-decoration:none;transition:transform .18s ease,box-shadow .18s ease}
   .btn:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
   .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line-strong)}
-  .btn:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+  /* обводка рисуется снаружи элемента, а снаружи здесь всегда тёмный фон:
+   тёмная обводка на нём сливалась (1:1), светлая видна везде */
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
 
   header{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--paper) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  /* после логотипа зияло 221 px, между пунктами меню — по 24: меню встаёт
+     посередине, и пустое место делится поровну */
   .nav{display:flex;align-items:center;justify-content:space-between;padding-block:14px;gap:20px}
-  .logo{font-family:var(--font-display);font-weight:700;font-size:1.6rem;color:var(--accent);text-decoration:none;letter-spacing:.02em}
-  .nav-links{display:flex;gap:24px;list-style:none;margin:0;padding:0;font-weight:600;font-size:1rem}
+  .logo{font-family:var(--font-display);font-weight:700;font-size:1.6rem;color:var(--accent);text-decoration:none;letter-spacing:.02em;display:inline-flex;align-items:center;min-height:46px}
+  .nav-links{display:flex;gap:24px;list-style:none;margin:0 auto;padding:0;font-weight:600;font-size:1rem}
   .nav-links a{text-decoration:none;opacity:.8}
   .nav-links a:hover{opacity:1}
   @media (max-width:900px){.nav-links{display:none}}
 
-  .hero{position:relative;overflow:hidden;padding-block:clamp(64px,10vw,120px);border-bottom:1px solid var(--line)}
+  .hero{position:relative;overflow:hidden;padding-block:clamp(64px,8.4vw,100px);border-bottom:1px solid var(--line)}
   .hero-bg{position:absolute;inset:0;background:
     radial-gradient(ellipse at 70% 20%,rgba(212,175,55,.16),transparent 60%),
     linear-gradient(180deg,rgba(11,16,12,.75),rgba(15,23,18,.94) 70%),
     url('photos/hall-1.jpg');
     background-size:cover;background-position:center}
   .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+/* без meta viewport телефон рисовал страницу шириной 980 px, и первый экран
+   так и остался в двух колонках: лиду доставалось 207 px и 21 знак в строке */
+  @media (max-width:760px){.hero-grid{grid-template-columns:1fr;gap:32px}}
   .hero h1{font-size:clamp(3rem,7vw,5.5rem);color:var(--ink)}
   .hero h1 em{font-style:normal;color:var(--accent)}
   .hero-sub{max-width:44ch;color:var(--muted);font-size:1rem;margin-top:18px}
   .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
   .hero-stats{display:flex;flex-wrap:wrap;gap:clamp(20px,4vw,44px);margin-top:44px;padding-top:22px;border-top:1px solid var(--line)}
-  .stat b{display:block;font-family:var(--font-mono);font-size:1.6rem;color:var(--accent)}
+  .stat b{display:block;font-family:var(--font-mono);font-size:1.6rem;color:var(--accent);white-space:nowrap}
   .stat span{color:var(--muted);font-size:.8rem}
 
   /* 3D table */
   .rig{perspective:1200px;display:flex;justify-content:center;align-items:center;margin:0 auto}
-  .gimbal{transform-style:preserve-3d;width:320px;height:180px;cursor:grab;touch-action:none}
+  /* стол фиксированной ширины 320 px при повороте вылезал за колонку на 225 px */
+.gimbal{transform-style:preserve-3d;width:min(320px,62vw);height:min(180px,35vw);cursor:grab;touch-action:none}
   .gimbal:active{cursor:grabbing}
   .table3d{position:relative;width:320px;height:180px;transform-style:preserve-3d;filter:drop-shadow(0 30px 40px rgba(0,0,0,.5))}
   .t-face{position:absolute;top:50%;left:50%}
@@ -76,10 +104,14 @@
   .t-back{width:320px;margin:-18px 0 0 -160px;transform:rotateX(-90deg) translateZ(-90px);filter:brightness(.6)}
   .t-left{width:180px;margin:-18px 0 0 -90px;transform:rotateX(-90deg) rotateY(90deg) translateZ(160px);filter:brightness(.8)}
   .t-right{width:180px;margin:-18px 0 0 -90px;transform:rotateX(-90deg) rotateY(-90deg) translateZ(160px);filter:brightness(.7)}
-  .drag-hint{font-family:var(--font-mono);font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;text-align:center;margin-top:26px}
+  .drag-hint{font-family:var(--font-mono);font-size:0.8rem;color:var(--muted);letter-spacing:.04em;text-align:center;margin-top:26px}
 
   .marquee{background:var(--paper-raised);color:var(--ink);overflow:hidden;white-space:nowrap;border-bottom:1px solid var(--line)}
-  .marquee-track{display:inline-flex;align-items:center;animation:scroll 26s linear infinite}
+  /* бегущая строка со словами читается шаблоном и мешает читать: полоса стоит,
+   а на телефоне её можно пролистать пальцем */
+.marquee{overflow-x:auto;scrollbar-width:none}
+.marquee::-webkit-scrollbar{display:none}
+.marquee-track{display:inline-flex;align-items:center}
   .marquee span{font-family:var(--font-display);font-weight:700;font-size:1rem;padding:14px 26px}
   .marquee span::after{content:"●";color:var(--accent);font-size:.6rem;margin-left:26px}
   @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
@@ -87,7 +119,7 @@
   section{padding-block:clamp(56px,8vw,100px)}
   .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:40px}
   .section-head h2{font-size:clamp(1.9rem,4vw,2.6rem);margin-top:10px}
-  .section-note{max-width:34ch;color:var(--muted);font-size:1rem}
+  .section-note{max-width:44ch;color:var(--muted);font-size:1rem}
   .surface{background:var(--paper-raised);border-block:1px solid var(--line)}
 
   .rooms-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
@@ -101,7 +133,7 @@
   @media (max-width:560px){.rooms-grid{grid-template-columns:1fr}}
 
   .price-cols{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-  .price-card{border:1px solid var(--line);border-radius:16px;padding:28px;background:var(--paper-raised)}
+  .price-card{border:1px solid var(--line);border-radius:14px;padding:28px;background:var(--paper-raised)}
   .price-card h3{font-family:var(--font-mono);font-size:0.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
   .price-row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:1rem}
   .price-row:last-child{border-bottom:none}
@@ -124,12 +156,15 @@
   .dish-name{padding:12px 14px;font-size:1rem;background:var(--paper-raised)}
   @media (max-width:900px){.kitchen-grid{grid-template-columns:1fr 1fr}}
 
-  .shop-card{border:1px solid var(--line);border-radius:16px;padding:32px;background:var(--paper-raised);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  .shop-card{border:1px solid var(--line);border-radius:14px;padding:32px;background:var(--paper-raised);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
   .chip-row{display:flex;flex-wrap:wrap;gap:10px}
   .chip{font-family:var(--font-mono);font-size:.8rem;padding:8px 14px;border-radius:999px;border:1px solid var(--line-strong);color:var(--muted)}
 
   .form-band{background:var(--paper-raised);border:1px solid var(--line);border-radius:22px;padding:clamp(32px,6vw,56px);display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
   .cb-form{display:flex;flex-direction:column;gap:12px}
+  .cb-agree{display:flex;gap:10px;align-items:flex-start;font-size:.8125rem;color:var(--muted);min-height:44px;padding:4px 0;cursor:pointer}
+  .cb-agree input{width:20px;height:20px;flex:none;margin-top:2px;accent-color:var(--accent)}
+  .cb-agree a{color:var(--accent)}
   .cb-form input[type=tel]{padding:13px 15px;border-radius:999px;border:1px solid var(--line-strong);background:transparent;color:var(--ink);font-family:var(--font-body)}
   .cb-form input::placeholder{color:var(--muted)}
   .cb-status{font-family:var(--font-mono);font-size:.8rem;color:var(--accent);min-height:1.3em}
@@ -137,6 +172,9 @@
 
   footer.site{border-top:1px solid var(--line);padding-block:36px;color:var(--muted);font-size:1rem}
   .foot-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .foot-docs{display:flex;gap:22px;flex-wrap:wrap}
+  .foot-docs a{color:var(--muted);text-decoration:underline;text-underline-offset:3px;display:inline-flex;align-items:center;min-height:44px}
+  .foot-docs a:hover{color:var(--accent)}
 
   .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
   .reveal.in-view{opacity:1;transform:none}
@@ -149,10 +187,15 @@
 
 /* длинная надпись на 320 px ломалась на строки, прижатые влево */
 .btn, .btn-main, a.btn, button.btn{text-align:center;line-height:1.25}
+/* в файле JetBrains Mono только 400–600: полужирный браузер подменял сам.
+     Моноширинный стоит у строк прайса, барной карты и подписей */
+  .price-row b,.menu-row b,.menu-group h3,.price-card h3,.stat b,.eyebrow,.eyebrow b,
+  .drag-hint,.cb-status{font-weight:600}
 </style>
+</head>
+<body>
 
 <header>
-<meta name="robots" content="noindex">
   <div class="wrap nav">
     <a class="logo" href="#top">Шары</a>
     <ul class="nav-links">
@@ -202,7 +245,7 @@
     </div>
   </section>
 
-  <div class="marquee"><div class="marquee-track">
+  <div class="marquee" role="region" aria-label="Что есть в клубе" tabindex="0"><div class="marquee-track">
     <span>РУССКИЙ БИЛЬЯРД</span><span>ПУЛ</span><span>VIP КАРАОКЕ</span><span>КРАФТОВОЕ ПИВО</span><span>СИДРЫ И МЕДОВУХА</span><span>КУХНЯ</span><span>МАГАЗИН АКСЕССУАРОВ</span>
     <span>РУССКИЙ БИЛЬЯРД</span><span>ПУЛ</span><span>VIP КАРАОКЕ</span><span>КРАФТОВОЕ ПИВО</span><span>СИДРЫ И МЕДОВУХА</span><span>КУХНЯ</span><span>МАГАЗИН АКСЕССУАРОВ</span>
   </div></div>
@@ -238,12 +281,12 @@
     <div class="wrap">
       <div class="section-head reveal">
         <div>Прайс-лист</span><h2>Сколько стоит игра</h2></div>
-        <p class="section-note">Будни дешевле — приходите днём. По выходным ставки выше, но и вечер длиннее.</p>
+        <p class="section-note">Будни дешевле, играйте днём. В выходные цена выше, зато вечер длинный.</p>
       </div>
       <div class="price-cols">
         <div class="price-card reveal">
           <h3>Понедельник — Четверг</h3>
-          <div class="price-row"><span>Русский бильярд, 14:00–02:00</span><b>500 ₽/ч</b></div>
+          <div class="price-row"><span>Русский бильярд, <span class="nowrap">14:00–02:00</span></span><b>500 ₽/ч</b></div>
           <div class="price-row"><span>Индивидуальная комната</span><b>700 ₽/ч</b></div>
           <div class="price-row"><span>Пул</span><b>400 ₽/ч</b></div>
           <div class="price-row"><span>VIP-комната, ТВ + караоке</span><b>900 ₽/ч</b></div>
@@ -356,6 +399,8 @@
         </div>
         <form class="cb-form" id="cb-form">
           <input type="tel" placeholder="+7 (___) ___-__-__" required aria-label="Телефон">
+          <label class="cb-agree"><input type="checkbox" id="cbOk" required>
+            <span>Согласен на <a href="soglasie.html" target="_blank" rel="noopener">обработку персональных данных</a>. Номер нужен только для звонка по этой брони.</span></label>
           <button class="btn" type="submit">Отправить</button>
           <div class="cb-status" id="cb-status" role="status"></div>
         </form>
@@ -368,6 +413,8 @@
   <div class="wrap foot-row">
     <span>© <span class="placeholder">2026</span> «Шары» — бар-бильярдный клуб</span>
     <span>Соцсети: <span class="placeholder">[Instagram / VK]</span></span>
+    <span>ИП Фамилия И. О., ИНН 602700123456, ОГРНИП 304602733500123</span>
+    <span class="foot-docs"><a href="policy.html">Политика обработки данных</a><a href="soglasie.html">Согласие на обработку данных</a></span>
   </div>
 </footer>
 
@@ -420,6 +467,23 @@
   }
 
   var form=document.getElementById('cb-form'), status=document.getElementById('cb-status');
-  form.addEventListener('submit',function(e){ e.preventDefault(); status.textContent='Заявка принята — демо-форма, без реальной отправки.'; });
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var ok=document.getElementById('cbOk');
+    if(ok && !ok.checked){ status.textContent='Отметьте согласие на обработку данных.'; ok.focus(); return; }
+    status.textContent='Заявка принята — демо-форма, без реальной отправки.';
+  });
+  /* после перехода по кнопке брони фокус оставался на body: человек с клавиатуры
+     доезжал до формы, но продолжал табать с начала страницы */
+  document.querySelectorAll('a[href="#contacts"]').forEach(function(a){
+    a.addEventListener('click',function(){
+      setTimeout(function(){
+        var f=document.querySelector('#contacts input, .cb-form input');
+        if(f) f.focus({preventScroll:true});
+      },600);
+    });
+  });
 })();
 </script>
+</body>
+</html>
