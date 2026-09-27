@@ -141,6 +141,11 @@
   .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
   .reveal.in-view{opacity:1;transform:none}
   @media (prefers-reduced-motion:reduce){.marquee-track{animation:none}.reveal{opacity:1;transform:none;transition:none}}
+
+/* цели под палец: в подвале ссылки были высотой 20 px, палец промахивался */
+@media(max-width:760px){
+  footer a, .ftr a, .foot a{display:inline-flex;align-items:center;min-height:44px}
+}
 </style>
 
 <header>
@@ -202,7 +207,7 @@
   <section id="rooms">
     <div class="wrap">
       <div class="section-head reveal">
-        <div><span class="eyebrow">Залы</span><h2>Где сыграть</h2></div>
+        <div><h2>Где сыграть</h2></div>
         <p class="section-note">Общий зал, индивидуальные комнаты и VIP с караоке — под любой вечер.</p>
       </div>
       <div class="rooms-grid">
@@ -229,7 +234,7 @@
   <section id="prices" class="surface">
     <div class="wrap">
       <div class="section-head reveal">
-        <div><span class="eyebrow">Прайс-лист</span><h2>Сколько стоит игра</h2></div>
+        <div>Прайс-лист</span><h2>Сколько стоит игра</h2></div>
         <p class="section-note">Будни дешевле — приходите днём. По выходным ставки выше, но и вечер длиннее.</p>
       </div>
       <div class="price-cols">
@@ -262,7 +267,7 @@
       </div>
       <div>
         <div class="section-head reveal" style="margin-bottom:24px">
-          <div><span class="eyebrow">Бар</span><h2>Барная карта</h2></div>
+          <div>Бар</span><h2>Барная карта</h2></div>
         </div>
 
         <div class="menu-group reveal">
@@ -311,7 +316,7 @@
   <section id="kitchen" class="surface">
     <div class="wrap">
       <div class="section-head reveal">
-        <div><span class="eyebrow">Кухня</span><h2>Пока играете — не проголодаетесь</h2></div>
+        <div>Кухня</span><h2>Пока играете — не проголодаетесь</h2></div>
         <p class="section-note">Цену на блюда уточняйте у администратора зала.</p>
       </div>
       <div class="kitchen-grid">
@@ -327,7 +332,7 @@
     <div class="wrap">
       <div class="shop-card reveal">
         <div>
-          <span class="eyebrow">Магазин</span>
+          Магазин</span>
           <h2 style="margin-top:10px;font-size:1.6rem">Бильярдные принадлежности</h2>
           <p style="color:var(--muted);max-width:48ch;margin-top:8px">Кии, мелки, перчатки и другие аксессуары — прямо на месте, спросите администратора.</p>
         </div>
@@ -342,7 +347,7 @@
     <div class="wrap">
       <div class="form-band reveal">
         <div>
-          <span class="eyebrow">Бронь стола</span>
+          Бронь стола</span>
           <h2 style="font-size:clamp(1.6rem,3vw,2.2rem)">Оставьте номер — перезвоним</h2>
           <p style="color:var(--muted);margin-top:12px;max-width:38ch">Адрес: <span class="placeholder">[адрес клуба]</span> · Телефон: <span class="placeholder">[телефон]</span></p>
         </div>
